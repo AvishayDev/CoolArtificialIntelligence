@@ -332,30 +332,28 @@ printState(board)
 decideWhoIsFirst(board)
 comp_count = 0
 average = 0
-if int(input("10 set of 100 games enter 1, play vs me enter something else : ")) == 1:
-    for i in range(10):
-        for i in range(0,100):#This loops takes about 15 seconds on my computer
-        #for i in range(0,50):
-            while not isFinished(board):
-                if isHumTurn(board):
-                    inputRandom(board)
-                    #inputMove(board)
-                else:
-                    board=go(board)
-                #printState(board)
-            if value(board)==10**20: #the computer (or smart agent) won
-                comp_count+=1
-            #print("Start another game")
-            create(board)
-        average += comp_count
-        print("The agent beat you:", comp_count, " out of ", i + 1)
-        comp_count = 0
+if int(input("for 100 games Vs random enter 1, to play Vs me enter something else : ")) == 1:
+    for i in range(0,100):#This loops takes about 15 seconds on my computer
+    #for i in range(0,50):
+        while not isFinished(board):
+            if isHumTurn(board):
+                inputRandom(board)
+                #inputMove(board)
+            else:
+                board=go(board)
+            #printState(board)
+        if value(board)==10**20: #the computer (or smart agent) won
+            comp_count+=1
+        #print("Start another game")
+        create(board)
+    average += comp_count
+    print("The agent beat you:", comp_count, " out of ", i + 1)
+    comp_count = 0
 else:
     for i in range(0,100):#This loops takes about 15 seconds on my computer
     #for i in range(0,50):
         while not isFinished(board):
             if isHumTurn(board):
-                #inputRandom(board)
                 inputMove(board)
             else:
                 board=go(board)
